@@ -18,7 +18,7 @@ public class TradeBookingController { //ForTesting
 				+ "   \"counterpartyId\":\"CP1\",\r\n"
 				+ "   \"bookId\":\"B1\",\r\n"
 				+ "   \"version\":1,\r\n"
-				+ "   \"maturityDate\":\"05/11/2022\"\r\n"
+				+ "   \"maturityDate\":\"05/20/2022\"\r\n"
 				+ "}";
 		for(int i=0;i<10;i++) {
 			tradeBookingHandler.handleMessage(message);

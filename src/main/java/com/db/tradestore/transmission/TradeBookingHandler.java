@@ -58,7 +58,7 @@ public class TradeBookingHandler {
 	}
 	
 	public void handleMessage(String message) {
-		CompletableFuture.runAsync(() -> handleMessageEvent(message));
+		CompletableFuture.runAsync(() -> handleMessageEvent(message),threadPoolTaskExecutor);
 	}
 	
 	
@@ -68,6 +68,7 @@ public class TradeBookingHandler {
 			Trade trade =  tradeMapper.mapMessageToTrade(message);
 			if(tradeValidator.isValidTrade(trade)) {
 				tradeBookingService.startTradeProcessing(trade);
+				LOGGER.info("Processed Message Successfully");
 			}else {
 				LOGGER.error("Trade message is not a valid message for processing");
 			}
